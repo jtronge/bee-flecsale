@@ -44,5 +44,9 @@ jobs:
           # echo test, and deploy your project.
           # echo $TEST_SECRET
           git status
+          python test.py > output.txt
+          git add output.txt
+          git commit -am `date +%F`": Add test output "
+          git push
           pwd
-          exit 1
+          # exit 1
