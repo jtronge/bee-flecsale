@@ -43,4 +43,6 @@ jobs:
           # echo Add other actions to build,
           # echo test, and deploy your project.
           # echo $TEST_SECRET
+          git status
+          pwd
           exit 1
