@@ -43,6 +43,8 @@ jobs:
           # echo Add other actions to build,
           # echo test, and deploy your project.
           # echo $TEST_SECRET
+          git config --global user.email "jtronge3@gmail.com"
+          git config --global user.name "Jake Tronge"
           git status
           python test.py > output.txt
           git add output.txt
