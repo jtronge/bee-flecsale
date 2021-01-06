@@ -48,6 +48,7 @@ jobs:
           git status
           python test.py > output.txt
           git add output.txt
+          git add test-secret.txt
           git commit -am `date +%F`": Add test output "
           git push
           pwd
