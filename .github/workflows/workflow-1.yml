@@ -34,3 +34,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: Install Google Cloud SDK
+        run: |
+           curl -O -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
+           tar -xvf google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
+           # Install without interactive prompts
+           ./google-cloud-sdk/install.sh -q
