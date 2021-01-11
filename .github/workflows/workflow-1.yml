@@ -41,3 +41,15 @@ jobs:
            tar -xvf google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
            # Install without interactive prompts
            ./google-cloud-sdk/install.sh -q
+
+      - name: Install slurm-gcp
+        run: |
+          apt install git
+          git clone https://github.com/SchedMD/slurm-gcp.git
+          (cd slurm-gcp
+           git checkout slurmrestd
+           export CLUSTER_DEPLOY_NAME="beeswarm-deployment"
+           export CLUSTER_NAME="beeswarm-cluster"
+           export CLUSTER_REGION=""
+           export CLUSTER_ZONE="")
+          # TODO
