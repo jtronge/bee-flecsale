@@ -37,10 +37,13 @@ jobs:
           
       - name: Install Google Cloud SDK
         run: |
-           curl -O -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
-           tar -xvf google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
+           #curl -O -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
+           #tar -xvf google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
            # Install without interactive prompts
-           ./google-cloud-sdk/install.sh -q
+           #./google-cloud-sdk/install.sh -q
+           # Install with snap instead
+           sudo snap install google-cloud-sdk
+           gcloud --version
 
       - name: Install slurm-gcp
         run: |
