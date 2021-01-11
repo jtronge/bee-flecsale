@@ -36,15 +36,20 @@ jobs:
           echo test, and deploy your project.
           
       - name: Install Google Cloud SDK
+        env:
+          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
         run: |
            curl -O -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
            tar -xvf google-cloud-sdk-322.0.0-linux-x86_64.tar.gz
            # Install without interactive prompts
            ./google-cloud-sdk/install.sh -q
            . ./google-cloud-sdk/path.bash.inc
-           # Install with snap instead
-           # sudo snap install google-cloud-sdk
            gcloud --version
+           # Output the keyfile (encoded with base64 as a secret)
+           echo $GCLOUD_KEYFILE_JSON | base64 -d > key-file.json
+           gcloud auth activate-service-account --key-file key-file.json
+           gcloud config set project bee-kent
+           gcloud deployment-manager deployments list
 
       - name: Install slurm-gcp
         run: |
