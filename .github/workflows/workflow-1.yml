@@ -44,7 +44,7 @@ jobs:
 
       - name: Install slurm-gcp
         run: |
-          apt install git
+          sudo apt-get install git
           git clone https://github.com/SchedMD/slurm-gcp.git
           (cd slurm-gcp
            git checkout slurmrestd
