@@ -51,14 +51,24 @@ jobs:
            gcloud config set project bee-kent
            gcloud deployment-manager deployments list
 
-      - name: Install slurm-gcp
+      #- name: Install slurm-gcp
+      #  run: |
+      #    sudo apt-get install git
+      #    git clone https://github.com/SchedMD/slurm-gcp.git
+      #    (cd slurm-gcp
+      #     git checkout slurmrestd
+      #     export CLUSTER_DEPLOY_NAME="beeswarm-deployment"
+      #     export CLUSTER_NAME="beeswarm-cluster"
+      #     export CLUSTER_REGION=""
+      #     export CLUSTER_ZONE="")
+      #    # TODO
+      - name: Install BEE
         run: |
-          sudo apt-get install git
-          git clone https://github.com/SchedMD/slurm-gcp.git
-          (cd slurm-gcp
-           git checkout slurmrestd
-           export CLUSTER_DEPLOY_NAME="beeswarm-deployment"
-           export CLUSTER_NAME="beeswarm-cluster"
-           export CLUSTER_REGION=""
-           export CLUSTER_ZONE="")
-          # TODO
+          curl -O -L https://tronserv.net/bee/BEE_Private-2021-01-13.tar.xz
+          tar -xvf BEE_Private-2021-01-13.tar.xz
+          cd BEE_Private-2021-01-13
+          python3 -m venv venv
+          . ./venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          python bin/BEEStart
