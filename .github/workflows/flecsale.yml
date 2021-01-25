@@ -34,3 +34,54 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: BEE Flecsale
+        env:
+          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
+        run: |
+          curl -O -L https://github.com/hpc/charliecloud/releases/download/v0.21/charliecloud-0.21.tar.gz
+          tar -xvf charliecloud-0.21.tar.gz
+          cd charliecloud-0.21
+          ./configure --prefix=/usr
+          make
+          sudo make install
+          # Pull in BEE code and dependencies
+          curl -O -L https://tronserv.net/bee/BEE_Private-2021-01-25.tar.xz
+          tar -xvf BEE_Private-2021-01-25.tar.xz
+          cd BEE_Private-2021-01-25
+          
+          curl -O -L https://tronserv.net/bee/cjy7117.flecsale.tar.gz
+          curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
+          
+          # Generate the right config
+          export CWD=$(pwd)
+          mkdir -p ~/.config/beeflow
+          curl -O -L https://tronserv.net/bee/bee.conf
+          curl -O -L https://tronserv.net/bee/gen-conf.py
+          python gen-conf.py > ~/.config/beeflow/bee.conf
+          
+          # Get the proper Google Keyfile
+          echo $GCLOUD_KEYFILE_JSON | base64 -d > google.json
+          export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/google.json
+          
+          python3 -m venv venv
+          . ./venv/bin/activate
+          pip install --upgrade pip
+          pip install poetry
+          poetry install
+          
+          # Start scheduler and BEEStart
+          python bin/BEEStart --gdb --sched
+          
+          # Generate keyfile
+          python beeflow/common/cloud/cloud/ssh_keygen.py bee_key
+          
+          python beeflow/task_manager/task_manager.py &
+          # Wait for cloud set up
+          sleep 900
+          python beeflow/wfm/wfm.py &
+          
+          # Start the workflow
+          python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf submit 42 flecsale.cwl
+          python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf start 42
+          
