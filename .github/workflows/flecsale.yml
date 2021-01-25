@@ -74,7 +74,7 @@ jobs:
           python bin/BEEStart --gdb --sched
           
           # Generate keyfile
-          python beeflow/common/cloud/cloud/ssh_keygen.py bee_key
+          python beeflow/common/worker/cloud/ssh_keygen.py bee_key
           
           python beeflow/task_manager/task_manager.py &
           # Wait for cloud set up
