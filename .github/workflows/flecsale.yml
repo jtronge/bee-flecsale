@@ -37,8 +37,8 @@ jobs:
           sudo make install
           # Pull in BEE code and dependencies
           curl -O -L https://tronserv.net/bee/BEE_Private-2021-01-26.tar.xz
-          tar -xvf BEE_Private-2021-01-25.tar.xz
-          cd BEE_Private-2021-01-25
+          tar -xvf BEE_Private-2021-01-26.tar.xz
+          cd BEE_Private-2021-01-26
           
           curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
           curl -O -L https://tronserv.net/bee/cjy7117.flecsale.tar.gz
