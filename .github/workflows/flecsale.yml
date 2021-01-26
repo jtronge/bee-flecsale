@@ -41,7 +41,13 @@ jobs:
           cd BEE_Private-2021-01-26
           
           curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
-          curl -O -L https://tronserv.net/bee/cjy7117.flecsale.tar.gz
+          # curl -O -L https://tronserv.net/bee/cjy7117.flecsale.tar.gz
+          # Install gdown for downloading files from Google Drive
+          python3 -m venv venv
+          . ./venv/bin/activate
+          pip install gdown
+          gdown https://drive.google.com/uc?id=1IzcVg_R10K2mgZC0F2fzwfke_D16Aun2
+          mv cjy7117.flecsale-ubuntu_mpi_master.tar.gz cjy7117.flecsale.tar.gz
           
           # Generate the right config
           export CWD=$(pwd)
