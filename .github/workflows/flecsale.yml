@@ -4,7 +4,6 @@
 
 name: CI
 
-# Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -41,7 +40,6 @@ jobs:
           cd BEE_Private-2021-01-26
           
           curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
-          # curl -O -L https://tronserv.net/bee/cjy7117.flecsale.tar.gz
           # Install gdown for downloading files from Google Drive
           python3 -m venv venv
           . ./venv/bin/activate
@@ -85,4 +83,5 @@ jobs:
           python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf submit 42 flecsale.cwl
           python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf start 42
 
+          # Wait for the workflow to complete
           sleep 180
