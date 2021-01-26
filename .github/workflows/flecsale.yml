@@ -36,7 +36,7 @@ jobs:
           make
           sudo make install
           # Pull in BEE code and dependencies
-          curl -O -L https://tronserv.net/bee/BEE_Private-2021-01-25.tar.xz
+          curl -O -L https://tronserv.net/bee/BEE_Private-2021-01-26.tar.xz
           tar -xvf BEE_Private-2021-01-25.tar.xz
           cd BEE_Private-2021-01-25
           
