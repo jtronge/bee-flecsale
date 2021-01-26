@@ -74,7 +74,9 @@ jobs:
 
           # Wait for the workflow manager to start up
           sleep 60
+
           # Start the workflow
           python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf submit 42 flecsale.cwl
           python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf start 42
-          
+
+          sleep 180
