@@ -17,18 +17,18 @@ curl -O -L https://tronserv.net/bee/BEE_Private-2021-01-27.tar.xz
 tar -xvf BEE_Private-2021-01-27.tar.xz
 cd BEE_Private-2021-01-27
 
-curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
 # Install gdown for downloading files from Google Drive
 python3 -m venv venv
 . ./venv/bin/activate
 pip install gdown
 gdown https://drive.google.com/uc?id=1IzcVg_R10K2mgZC0F2fzwfke_D16Aun2
 mv cjy7117.flecsale-ubuntu_mpi_master.tar.gz cjy7117.flecsale.tar.gz
+#curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
+https://drive.google.com/uc?id=1QLcdaVJ5Sw9-iV8oBWPlZ5b0xRk22TS-
 
 # Generate the right config
 export CWD=$(pwd)
 mkdir -p ~/.config/beeflow
-curl -O -L https://tronserv.net/bee/bee.conf
 python gen-conf.py $(pwd) $PREFIX $NODES $MACHINE_TYPE $CORES_PER_NODE \
 	> ~/.config/beeflow/bee.conf
 
