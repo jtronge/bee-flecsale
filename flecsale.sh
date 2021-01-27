@@ -51,7 +51,7 @@ python beeflow/common/worker/cloud/ssh_keygen.py bee_key
           
 python beeflow/task_manager/task_manager.py &
 # Wait for cloud set up
-sleep 1100
+sleep 1650
 python beeflow/wfm/wfm.py &
 
 # Wait for the workflow manager to start up
