@@ -24,7 +24,7 @@ pip install gdown
 gdown https://drive.google.com/uc?id=1IzcVg_R10K2mgZC0F2fzwfke_D16Aun2
 mv cjy7117.flecsale-ubuntu_mpi_master.tar.gz cjy7117.flecsale.tar.gz
 #curl -O -L https://tronserv.net/bee/neo4j-3.5.17-env.tar.gz
-https://drive.google.com/uc?id=1QLcdaVJ5Sw9-iV8oBWPlZ5b0xRk22TS-
+gdown https://drive.google.com/uc?id=1QLcdaVJ5Sw9-iV8oBWPlZ5b0xRk22TS-
 
 # Generate the right config
 export CWD=$(pwd)
