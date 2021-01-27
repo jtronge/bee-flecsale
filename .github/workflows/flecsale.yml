@@ -17,7 +17,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # TODO: Should be able to refactor these into some sort of subaction
-  bee_flecsale_procs2:
+  bee_flecsale_procs4:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -28,7 +28,7 @@ jobs:
       - name: BEE Flecsale
         env:
           GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
-        run: sh ./flecsale.sh procs2 2 n1-standard-16 1
+        run: sh ./flecsale.sh procs4 2 n1-standard-16 2
 
 #  bee_flecsale_procs4:
 #    runs-on: ubuntu-latest
