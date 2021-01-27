@@ -30,54 +30,54 @@ jobs:
           GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
         run: sh ./flecsale.sh procs2 2 n1-standard-16 1
 
-  bee_flecsale_procs4:
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: BEE Flecsale
-        env:
-          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
-        run: sh ./flecsale.sh procs4 2 n1-standard-16 2
-
-  bee_flecsale_procs8:
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: BEE Flecsale
-        env:
-          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
-        run: sh ./flecsale.sh procs8 2 n1-standard-16 4
-
-  bee_flecsale_procs16:
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: BEE Flecsale
-        env:
-          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
-        run: sh ./flecsale.sh procs16 2 n1-standard-16 8
-
-  bee_flecsale_procs32:
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: BEE Flecsale
-        env:
-          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
-        run: sh ./flecsale.sh procs32 2 n1-standard-16 16
+#  bee_flecsale_procs4:
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#      - uses: actions/checkout@v2
+#
+#      - name: BEE Flecsale
+#        env:
+#          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
+#        run: sh ./flecsale.sh procs4 2 n1-standard-16 2
+#
+#  bee_flecsale_procs8:
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#      - uses: actions/checkout@v2
+#
+#      - name: BEE Flecsale
+#        env:
+#          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
+#        run: sh ./flecsale.sh procs8 2 n1-standard-16 4
+#
+#  bee_flecsale_procs16:
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#      - uses: actions/checkout@v2
+#
+#      - name: BEE Flecsale
+#        env:
+#          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
+#        run: sh ./flecsale.sh procs16 2 n1-standard-16 8
+#
+#  bee_flecsale_procs32:
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#      - uses: actions/checkout@v2
+#
+#      - name: BEE Flecsale
+#        env:
+#          GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
+#        run: sh ./flecsale.sh procs32 2 n1-standard-16 16
