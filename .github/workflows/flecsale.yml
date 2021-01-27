@@ -84,4 +84,4 @@ jobs:
           python beeflow/client/client-cli.py ~/.config/beeflow/bee.conf start 42
 
           # Wait for the workflow to complete
-          sleep 20
+          sleep 120
