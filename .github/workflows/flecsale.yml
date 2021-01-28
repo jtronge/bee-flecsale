@@ -28,7 +28,7 @@ jobs:
       - name: BEE Flecsale
         env:
           GCLOUD_KEYFILE_JSON: ${{ secrets.GCLOUD_KEYFILE_JSON }}
-        run: sh ./flecsale.sh procs32 2 n1-standard-16 16
+        run: sh ./flecsale.sh procs32 2 n1-standard-32 16
 
 #  bee_flecsale_procs4:
 #    runs-on: ubuntu-latest
